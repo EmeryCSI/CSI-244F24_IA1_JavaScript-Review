@@ -2,7 +2,7 @@
 
 <br />
 
-![RTC Logo](Images/logo.jpg)
+![RTC Logo](logo.jpg)
 
 This tutorial is part of CSI-244 at Renton Technical College.
 
@@ -120,11 +120,9 @@ Complete the following exercises in `app.js`:
 
 1. Create a function called `calculateArea` that takes the length and width of a rectangle as parameters and returns its area.
 
-2. Create an array of your favorite books (at least 3). Use the `forEach` method to log each book to the console.
+2. Create an object representing a movie with properties for title, director, and releaseYear. Add a method to the object that returns a string with the movie's details.
 
-3. Create an object representing a movie with properties for title, director, and releaseYear. Add a method to the object that returns a string with the movie's details.
-
-4. Convert the following function to an arrow function:
+3. Convert the following function to an arrow function:
    ```javascript
    function multiply(a, b) {
      return a * b;
@@ -143,7 +141,6 @@ git push
 
 In this section, we'll explore different types of loops in JavaScript. Loops are essential for iterating over data structures and performing repetitive tasks efficiently.
 
-Remember to add these examples and your solutions to the `app.js` file in your cloned repository.
 
 1. For Loop:
    The most traditional type of loop in JavaScript.
@@ -218,15 +215,11 @@ Complete the following exercises in `app.js`:
 
 1. Use a `for` loop to print the numbers from 1 to 10.
 
-2. Create an array of 5 fruits. Use a `while` loop to print each fruit to the console.
+2. Create an array of 5 fruits. Use a `foreach` loop to print each fruit to the console.
 
-3. Use a `do...while` loop to print the numbers from 5 to 1 (countdown).
+3. Create an array of numbers. Use a `for...of` loop to calculate and print the sum of all numbers in the array.
 
-4. Create an array of numbers. Use a `for...of` loop to calculate and print the sum of all numbers in the array.
-
-5. Create an object representing a car with properties like make, model, and year. Use a `for...in` loop to print all the properties and their values.
-
-6. Use the `forEach` method on an array of names to print a greeting for each name (e.g., "Hello, [name]!").
+4. Create an object representing a car with properties like make, model, and year. Use a `for...in` loop to print all the properties and their values.
 
 After completing these exercises, commit your changes:
 
@@ -334,9 +327,6 @@ Complete the following exercises in `app.js`:
 
 3. Write a function `printPersonInfo` that takes an object with properties `name`, `age`, and `occupation`. Use object destructuring in the function parameter to extract these properties, and provide a default value of "Unknown" for `occupation`.
 
-4. Create two arrays: `fruits1` with elements "apple" and "banana", and `fruits2` with elements "cherry" and "date". Use the spread operator to create a new array `allFruits` that combines both arrays.
-
-5. Write a function `max` that finds the maximum number from a list of arguments. Use the rest operator to gather all arguments into an array, then use the spread operator with `Math.max` to find the maximum value.
 
 After completing these exercises, commit your changes:
 
@@ -426,13 +416,9 @@ Complete the following exercises in `app.js`:
 
 1. Write a function `fetchUserData` that takes a userId and a callback function as parameters. The function should simulate fetching user data from a server (use `setTimeout` to simulate delay) and then call the callback with an object containing user information.
 
-2. Create a function `processArray` that takes an array and a callback function. The function should apply the callback to each element of the array and return a new array with the results.
+2. Call fetchUserData using a traditional Function Declaration as the callback.
 
-3. Implement a simple asynchronous map function called `asyncMap`. It should take an array, a callback function that performs some asynchronous operation, and a final callback to be executed when all operations are complete. The function should apply the callback to each element in the array in parallel and collect the results.
-
-4. Write a function `retryOperation` that takes a callback function and a number of retry attempts. The function should execute the callback and if it throws an error, retry the operation up to the specified number of attempts. If all attempts fail, it should throw the last error.
-
-5. Create a `debounce` function that takes a callback and a delay time as arguments. The `debounce` function
+3. Call fectchUserData using an arrow function as the callback.
 
 After completing these exercises, commit your changes:
 
