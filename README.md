@@ -37,41 +37,72 @@ This tutorial is part of CSI-244 at Renton Technical College.
    ```
    new-item app.js  # For Windows
    # OR
-   touch app.js  # For Mac/Linus
+   touch app.js  # For Mac/Linux
    ```
 
 8. Open `app.js` in your preferred code editor.
 
 9. As you complete each part of this assignment, be sure to save your work in `app.js` before committing and pushing your changes.
 
-Now, let's proceed with the JavaScript fundamentals review.
-
 ### Part 2 - Basic JavaScript Concepts
+
+In this section, we'll cover the fundamental building blocks of JavaScript programming.
 
 1. Variables and Data Types:
    ```javascript
-   // Add this to app.js
-   let name = "John Doe";
-   const age = 30;
-   var isStudent = true;
+   // Variables can be declared using let, const, or var
+   let name = "John Doe";  // String data type, can be reassigned
+   const age = 30;  // Number data type, cannot be reassigned
+   var isStudent = true;  // Boolean data type, older way of declaring variables
    
+   // Template literals allow for easy string interpolation
    console.log(`Name: ${name}, Age: ${age}, Is Student: ${isStudent}`);
    ```
+   Note: It's generally recommended to use `let` and `const` over `var` in modern JavaScript.
 
 2. Functions:
+   In JavaScript, there are several ways to create functions. Let's explore each:
+
+   a. Function Declaration:
    ```javascript
-   // Add this to app.js
    function greet(name) {
      return `Hello, ${name}!`;
    }
-   
    console.log(greet("Alice"));
    ```
+   This is the most traditional way to define a function. Function declarations are hoisted, meaning they can be called before they are defined in the code.
+
+   b. Function Expression:
+   ```javascript
+   const greet = function(name) {
+     return `Hello, ${name}!`;
+   };
+   console.log(greet("Bob"));
+   ```
+   This assigns an anonymous function to a variable. Function expressions are not hoisted, so they can only be called after they are defined.
+
+   c. Arrow Function:
+   ```javascript
+   const greet = (name) => {
+     return `Hello, ${name}!`;
+   };
+   console.log(greet("Charlie"));
+   ```
+   Arrow functions provide a more concise syntax. They also handle `this` keyword differently than traditional functions.
+
+   d. Concise Arrow Function:
+   ```javascript
+   const greet = name => `Hello, ${name}!`;
+   console.log(greet("David"));
+   ```
+   For simple functions that just return a value, you can make them even more concise by removing the curly braces and `return` keyword.
 
 3. Arrays and Objects:
    ```javascript
-   // Add this to app.js
+   // Arrays are ordered lists
    let fruits = ["apple", "banana", "orange"];
+   
+   // Objects are collections of key-value pairs
    let person = {
      name: "Bob",
      age: 25,
@@ -81,178 +112,332 @@ Now, let's proceed with the JavaScript fundamentals review.
    console.log(fruits);
    console.log(person);
    ```
-
-4. Run your code using Node.js:
-   ```
-   node app.js
-   ```
+   Arrays and objects are fundamental data structures in JavaScript for organizing and storing data.
 
 ### Part 2 - Practice Exercises
 
 Complete the following exercises in `app.js`:
 
-1. Create a function that takes two numbers as parameters and returns their sum.
-2. Create an array of numbers and use the `map` function to create a new array with each number squared.
-3. Create an object representing a car with properties for make, model, and year. Add a method to the object that returns a string with the car's details.
+1. Create a function called `calculateArea` that takes the length and width of a rectangle as parameters and returns its area.
 
-### Part 3 - Advanced JavaScript Concepts
+2. Create an array of your favorite books (at least 3). Use the `forEach` method to log each book to the console.
 
-1. Arrow Functions:
+3. Create an object representing a movie with properties for title, director, and releaseYear. Add a method to the object that returns a string with the movie's details.
+
+4. Convert the following function to an arrow function:
    ```javascript
-   // Add this to app.js
-   const multiply = (a, b) => a * b;
-   console.log(multiply(4, 5));
+   function multiply(a, b) {
+     return a * b;
+   }
    ```
 
-2. Object Destructuring:
+After completing these exercises, commit your changes:
+
+```
+git add .
+git commit -m "Completed Part 2"
+git push
+```
+
+### Part 3 - Loops in JavaScript
+
+In this section, we'll explore different types of loops in JavaScript. Loops are essential for iterating over data structures and performing repetitive tasks efficiently.
+
+Remember to add these examples and your solutions to the `app.js` file in your cloned repository.
+
+1. For Loop:
+   The most traditional type of loop in JavaScript.
+
    ```javascript
-   // Add this to app.js
-   const person = { name: "Alice", age: 30, city: "New York" };
-   const { name, age, city } = person;
-   console.log(`${name} is ${age} years old and lives in ${city}`);
+   console.log("For Loop:");
+   for (let i = 0; i < 5; i++) {
+     console.log(i);
+   }
    ```
 
-3. Array Destructuring:
+2. While Loop:
+   Executes a block of code as long as a specified condition is true.
+
    ```javascript
-   // Add this to app.js
-   const colors = ["red", "green", "blue"];
-   const [firstColor, secondColor, thirdColor] = colors;
-   console.log(`First color: ${firstColor}, Second color: ${secondColor}, Third color: ${thirdColor}`);
+   console.log("While Loop:");
+   let count = 0;
+   while (count < 5) {
+     console.log(count);
+     count++;
+   }
    ```
 
-4. Spread Operator:
+3. Do...While Loop:
+   Similar to the while loop, but it always executes the code block at least once before checking the condition.
+
    ```javascript
-   // Add this to app.js
-   const newFruits = [...fruits, "grape"];
-   console.log(newFruits);
+   console.log("Do...While Loop:");
+   let x = 0;
+   do {
+     console.log(x);
+     x++;
+   } while (x < 5);
+   ```
+
+4. For...Of Loop:
+   Used to iterate over iterable objects (arrays, strings, etc.).
+
+   ```javascript
+   console.log("For...Of Loop:");
+   const fruits = ["apple", "banana", "cherry"];
+   for (const fruit of fruits) {
+     console.log(fruit);
+   }
+   ```
+
+5. For...In Loop:
+   Used to iterate over the enumerable properties of an object.
+
+   ```javascript
+   console.log("For...In Loop:");
+   const person = { name: "John", age: 30, city: "New York" };
+   for (const key in person) {
+     console.log(key + ": " + person[key]);
+   }
+   ```
+
+6. forEach Method:
+   A method on arrays to execute a provided function once for each array element.
+
+   ```javascript
+   console.log("forEach Method:");
+   const numbers = [1, 2, 3, 4, 5];
+   numbers.forEach(function(number) {
+     console.log(number);
+   });
    ```
 
 ### Part 3 - Practice Exercises
 
-1. Rewrite the sum function from Part 2 using an arrow function.
-2. Create an object with at least 5 properties and use object destructuring to extract 3 of them in a single line.
-3. Create an array with at least 5 elements and use array destructuring to assign the first, third, and fifth elements to variables.
-4. Use the spread operator to merge two arrays into a new array.
+Complete the following exercises in `app.js`:
 
-### Part 4 - Advanced Destructuring and Default Values
+1. Use a `for` loop to print the numbers from 1 to 10.
 
-1. Nested Object Destructuring:
+2. Create an array of 5 fruits. Use a `while` loop to print each fruit to the console.
+
+3. Use a `do...while` loop to print the numbers from 5 to 1 (countdown).
+
+4. Create an array of numbers. Use a `for...of` loop to calculate and print the sum of all numbers in the array.
+
+5. Create an object representing a car with properties like make, model, and year. Use a `for...in` loop to print all the properties and their values.
+
+6. Use the `forEach` method on an array of names to print a greeting for each name (e.g., "Hello, [name]!").
+
+After completing these exercises, commit your changes:
+
+```
+git add app.js
+git commit -m "Completed Part 3 exercises on Loops"
+git push
+```
+
+### Part 4 - Destructuring, Spread, and Rest Operators
+
+This section introduces powerful JavaScript features that allow for more elegant and efficient code: destructuring, spread, and rest operators.
+
+1. Object Destructuring:
+   Object destructuring allows you to extract multiple properties from an object and assign them to variables in a single statement.
+
    ```javascript
-   // Add this to app.js
-   const user = {
-     id: 1,
-     name: "John Doe",
-     address: {
-       street: "123 Main St",
-       city: "Anytown",
-       country: "USA"
-     }
-   };
+   // Basic object destructuring
+   const person = { firstName: "John", lastName: "Doe", age: 30 };
+   const { firstName, lastName } = person;
+   console.log(firstName, lastName); // Output: John Doe
+
+   // Assigning to different variable names
+   const { firstName: fName, lastName: lName } = person;
+   console.log(fName, lName); // Output: John Doe
+
+   // Setting default values
+   const { age, occupation = "Unknown" } = person;
+   console.log(age, occupation); // Output: 30 Unknown
+   ```
+
+2. Array Destructuring:
+   Array destructuring allows you to extract multiple elements from an array and assign them to variables in a single statement.
+
+   ```javascript
+   // Basic array destructuring
+   const colors = ["red", "green", "blue"];
+   const [firstColor, secondColor] = colors;
+   console.log(firstColor, secondColor); // Output: red green
+
+   // Skipping elements
+   const [, , thirdColor] = colors;
+   console.log(thirdColor); // Output: blue
+
+   // Swapping variables
+   let a = 1, b = 2;
+   [a, b] = [b, a];
+   console.log(a, b); // Output: 2 1
+   ```
+
+3. Spread Operator:
+   The spread operator (...) allows an iterable (like an array or string) to be expanded in places where zero or more arguments or elements are expected.
+
+   ```javascript
+   // Combining arrays
+   const arr1 = [1, 2, 3];
+   const arr2 = [4, 5, 6];
+   const combinedArray = [...arr1, ...arr2];
+   console.log(combinedArray); // Output: [1, 2, 3, 4, 5, 6]
+
+   // Copying arrays
+   const originalArray = [1, 2, 3];
+   const copiedArray = [...originalArray];
    
-   const { name, address: { city, country } } = user;
-   console.log(`${name} lives in ${city}, ${country}`);
+   // Spreading into function arguments
+   function sum(x, y, z) {
+     return x + y + z;
+   }
+   const numbers = [1, 2, 3];
+   console.log(sum(...numbers)); // Output: 6
+
+   // Spreading object properties
+   const basicInfo = { firstName: "John", lastName: "Doe" };
+   const detailedInfo = { ...basicInfo, age: 30, occupation: "Developer" };
+   console.log(detailedInfo);
+   // Output: { firstName: "John", lastName: "Doe", age: 30, occupation: "Developer" }
    ```
 
-2. Array Destructuring with Rest:
-   ```javascript
-   // Add this to app.js
-   const numbers = [1, 2, 3, 4, 5];
-   const [first, second, ...rest] = numbers;
-   console.log(`First: ${first}, Second: ${second}, Rest: ${rest}`);
-   ```
+4. Rest Operator:
+   The rest operator (...) allows you to represent an indefinite number of arguments as an array. It's used in function parameters or in destructuring assignments.
 
-3. Default Values in Destructuring:
    ```javascript
-   // Add this to app.js
-   const settings = { theme: "dark" };
-   const { theme, fontSize = 16 } = settings;
-   console.log(`Theme: ${theme}, Font Size: ${fontSize}`);
-   ```
+   // Rest in function parameters
+   function sum(...numbers) {
+     return numbers.reduce((total, num) => total + num, 0);
+   }
+   console.log(sum(1, 2, 3, 4)); // Output: 10
 
-4. Combining Array and Object Destructuring:
-   ```javascript
-   // Add this to app.js
-   const people = [
-     { name: "Alice", age: 30 },
-     { name: "Bob", age: 25 }
-   ];
-   const [{ name: firstName }, { age: secondAge }] = people;
-   console.log(`First person's name: ${firstName}, Second person's age: ${secondAge}`);
+   // Rest in array destructuring
+   const [first, second, ...rest] = [1, 2, 3, 4, 5];
+   console.log(first, second, rest); // Output: 1 2 [3, 4, 5]
+
+   // Rest in object destructuring
+   const { a, b, ...others } = { a: 1, b: 2, c: 3, d: 4 };
+   console.log(a, b, others); // Output: 1 2 { c: 3, d: 4 }
    ```
 
 ### Part 4 - Practice Exercises
 
-1. Create a nested object representing a company with departments. Use nested destructuring to extract the name of a sub-department.
-2. Write a function that takes an array as an argument and uses array destructuring with rest to separate the first two elements from the rest.
-3. Create an object with some properties and use destructuring with default values to extract properties that may not exist in the object.
-4. Given an array of objects representing students, use a combination of array and object destructuring to extract specific properties from the second student.
+Complete the following exercises in `app.js`:
 
-### Part 5 - Practical Applications of Destructuring
+1. Given the object `{ name: "Alice", age: 25, city: "New York", country: "USA" }`, use object destructuring to extract the `name` and `age` properties. Then, use rest to collect the remaining properties into a new object called `location`.
 
-1. Function Parameter Destructuring:
+2. Create an array of numbers `[1, 2, 3, 4, 5]`. Use array destructuring to assign the first two numbers to variables `a` and `b`, and the rest of the numbers to a variable `remaining`.
+
+3. Write a function `printPersonInfo` that takes an object with properties `name`, `age`, and `occupation`. Use object destructuring in the function parameter to extract these properties, and provide a default value of "Unknown" for `occupation`.
+
+4. Create two arrays: `fruits1` with elements "apple" and "banana", and `fruits2` with elements "cherry" and "date". Use the spread operator to create a new array `allFruits` that combines both arrays.
+
+5. Write a function `max` that finds the maximum number from a list of arguments. Use the rest operator to gather all arguments into an array, then use the spread operator with `Math.max` to find the maximum value.
+
+After completing these exercises, commit your changes:
+
+```
+git add .
+git commit -m "Completed Part 4"
+git push
+```
+
+### Part 5 - Callbacks in JavaScript
+
+Callbacks are a fundamental concept in JavaScript, especially for handling asynchronous operations. A callback is a function that is passed as an argument to another function and is executed after the first function has completed.
+
+1. Basic Callback Example:
    ```javascript
-   // Add this to app.js
-   function printUserInfo({ name, age, email = "N/A" }) {
-     console.log(`Name: ${name}, Age: ${age}, Email: ${email}`);
+   function greet(name, callback) {
+     console.log('Hello ' + name);
+     callback();
    }
-   
-   const user1 = { name: "Alice", age: 30, email: "alice@example.com" };
-   const user2 = { name: "Bob", age: 25 };
-   
-   printUserInfo(user1);
-   printUserInfo(user2);
-   ```
 
-2. Destructuring in Loops:
-   ```javascript
-   // Add this to app.js
-   const products = [
-     { id: 1, name: "Laptop", price: 1000 },
-     { id: 2, name: "Phone", price: 500 },
-     { id: 3, name: "Tablet", price: 300 }
-   ];
-   
-   for (const { name, price } of products) {
-     console.log(`${name} costs $${price}`);
+   function callMe() {
+     console.log('I am callback function');
    }
-   ```
 
-3. Swapping Variables:
-   ```javascript
-   // Add this to app.js
-   let a = 5, b = 10;
-   [a, b] = [b, a];
-   console.log(`a = ${a}, b = ${b}`);
+   greet('John', callMe);
    ```
+   In this example, `callMe` is passed as a callback to the `greet` function.
 
-4. Destructuring Return Values:
+2. Callbacks with Arguments:
    ```javascript
-   // Add this to app.js
-   function getMinMax(numbers) {
-     return [Math.min(...numbers), Math.max(...numbers)];
+   function calculateSquare(number, callback) {
+     const result = number * number;
+     callback(result);
    }
-   
-   const [min, max] = getMinMax([3, 1, 4, 1, 5, 9, 2, 6]);
-   console.log(`Min: ${min}, Max: ${max}`);
+
+   function displayResult(result) {
+     console.log('The square is: ' + result);
+   }
+
+   calculateSquare(5, displayResult);
    ```
+   Here, the callback `displayResult` receives the result as an argument.
+
+3. Anonymous Function as Callback:
+   ```javascript
+   setTimeout(function() {
+     console.log('This message is shown after 3 seconds');
+   }, 3000);
+   ```
+   An anonymous function is used as a callback for `setTimeout`.
+
+4. Error Handling in Callbacks:
+   ```javascript
+   function divideNumbers(a, b, callback) {
+     if (b === 0) {
+       callback(new Error('Cannot divide by zero'), null);
+     } else {
+       callback(null, a / b);
+     }
+   }
+
+   divideNumbers(10, 2, function(error, result) {
+     if (error) {
+       console.error('Error:', error.message);
+     } else {
+       console.log('Result:', result);
+     }
+   });
+   ```
+   This pattern is common in Node.js for handling errors in asynchronous operations.
+
+5. Callback Hell:
+   ```javascript
+   asyncOperation1(function(result1) {
+     asyncOperation2(result1, function(result2) {
+       asyncOperation3(result2, function(result3) {
+         // This nesting can go on...
+       });
+     });
+   });
+   ```
+   This demonstrates the potential for deeply nested callbacks, often referred to as "callback hell". This is one of the reasons why Promises and async/await were introduced in later versions of JavaScript.
 
 ### Part 5 - Practice Exercises
 
-1. Write a function that takes an object as a parameter and uses destructuring to extract and use multiple properties.
-2. Create an array of objects and use destructuring in a `forEach` loop to log specific properties of each object.
-3. Implement a function that returns an object with multiple properties, and use destructuring to extract these properties when calling the function.
-4. Use array destructuring to easily swap the values of three variables without using a temporary variable.
+Complete the following exercises in `app.js`:
 
-### Submitting Your Work
+1. Write a function `fetchUserData` that takes a userId and a callback function as parameters. The function should simulate fetching user data from a server (use `setTimeout` to simulate delay) and then call the callback with an object containing user information.
 
-After completing the practice exercises for each part:
+2. Create a function `processArray` that takes an array and a callback function. The function should apply the callback to each element of the array and return a new array with the results.
 
-1. Save your JavaScript files in your project directory.
-2. Open your git bash terminal in the project directory.
-3. Type `git add .` to stage your new files.
-4. Type `git commit -m "Completed JavaScript Fundamentals Review"`.
-5. Type `git push` to submit your work.
+3. Implement a simple asynchronous map function called `asyncMap`. It should take an array, a callback function that performs some asynchronous operation, and a final callback to be executed when all operations are complete. The function should apply the callback to each element in the array in parallel and collect the results.
 
-If you have any questions about this assignment, please reach out to your instructor or the TA for this course.
+4. Write a function `retryOperation` that takes a callback function and a number of retry attempts. The function should execute the callback and if it throws an error, retry the operation up to the specified number of attempts. If all attempts fail, it should throw the last error.
 
-Feel free to message your instructor or the TA on Canvas if you need any clarification.
+5. Create a `debounce` function that takes a callback and a delay time as arguments. The `debounce` function
+
+After completing these exercises, commit your changes:
+
+```
+git add .
+git commit -m "Completed"
+git push
+```
